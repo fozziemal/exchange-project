@@ -19,9 +19,12 @@ document.getElementById("transfer-amount").addEventListener('click', () => {
   const sender = document.getElementById("exchange-address").value;
   const amount = document.getElementById("send-amount").value;
   const recipient = document.getElementById("recipient").value;
+  
+  // sender obtains signature from the script in signature.js
+  const signature = document.getElementById("digital-signature").value;
 
   const body = JSON.stringify({
-    sender, amount, recipient
+    sender, amount, recipient, signature
   });
 
   const request = new Request(`${server}/send`, { method: 'POST', body });
